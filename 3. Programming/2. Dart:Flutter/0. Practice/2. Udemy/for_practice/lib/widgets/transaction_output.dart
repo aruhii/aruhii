@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/transaction.dart';
+import 'transaction_input.dart';
 
 class TransactionOutput extends StatefulWidget {
   @override
@@ -21,6 +22,16 @@ class _TransactionOutputState extends State<TransactionOutput> {
       date: DateTime.now(),
     )
   ];
+
+  void addNewTransaction(String title, double amount) {
+    Transaction tmp_transaction = Transaction(
+      title: title,
+      amount: amount,
+      id: DateTime.now().toString(),
+      date: DateTime.now(),
+    );
+    _userTransactions.add(tmp_transaction);
+  }
 
   @override
   Widget build(BuildContext context) {
