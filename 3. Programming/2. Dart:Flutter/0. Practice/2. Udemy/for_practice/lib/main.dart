@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './widgets/transaction_input.dart';
-import './widgets/transaction_output.dart';
+import './widgets/user_transactions.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,10 +21,30 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Expense App"),
+        title: Text("Household Expense"),
       ),
-      body: Column(
-        children: [TransactionInput(), TransactionOutput()],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              padding: EdgeInsets.all(0.1),
+              width: double.infinity,
+              child: Card(
+                color: Colors.blue,
+                child: Text(
+                  " Input Field!",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+              ),
+            ),
+            UserTransactions(),
+          ],
+        ),
       ),
     );
   }
